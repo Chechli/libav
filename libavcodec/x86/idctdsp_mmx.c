@@ -113,7 +113,7 @@ void ff_put_signed_pixels_clamped_mmx(const int16_t *block, uint8_t *pixels,
     x86_reg line_skip3;
 
     __asm__ volatile (
-        "movq "MANGLE(ff_pb_80)", %%mm0     \n\t"
+       // "movq "MANGLE(ff_pb_80)", %%mm0     \n\t"
         "lea         (%3, %3, 2), %1        \n\t"
         put_signed_pixels_clamped_mmx_half(0)
         "lea         (%0, %3, 4), %0        \n\t"

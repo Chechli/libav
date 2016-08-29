@@ -27,3 +27,5 @@
 /coverage.info
 /lcov/
 /mapfile
+/build
+*~

@@ -104,7 +104,7 @@ PUT_PIXELS_16
 ; void ff_put_no_rnd_pixels8_x2(uint8_t *block, const uint8_t *pixels, ptrdiff_t line_size, int h)
 %macro PUT_NO_RND_PIXELS8_X2 0
 cglobal put_no_rnd_pixels8_x2, 4,5
-    mova         m6, [pb_1]
+;    mova         m6, [pb_1]
     lea          r4, [r2*2]
 .loop:
     mova         m0, [r1]
@@ -179,7 +179,7 @@ PUT_PIXELS8_Y2
 ; void ff_put_no_rnd_pixels8_y2(uint8_t *block, const uint8_t *pixels, ptrdiff_t line_size, int h)
 %macro PUT_NO_RND_PIXELS8_Y2 0
 cglobal put_no_rnd_pixels8_y2, 4,5
-    mova         m6, [pb_1]
+;    mova         m6, [pb_1]
     lea          r4, [r2+r2]
     mova         m0, [r1]
     sub          r0, r2
@@ -324,7 +324,7 @@ AVG_PIXELS8_Y2
 ; void ff_avg_pixels8_xy2(uint8_t *block, const uint8_t *pixels, ptrdiff_t line_size, int h)
 %macro AVG_PIXELS8_XY2 0
 cglobal avg_pixels8_xy2, 4,5
-    mova         m6, [pb_1]
+;    mova         m6, [pb_1]
     lea          r4, [r2*2]
     mova         m0, [r1]
     PAVGB        m0, [r1+1]

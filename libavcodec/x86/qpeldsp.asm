@@ -194,12 +194,12 @@ cglobal %1_mpeg4_qpel16_h_lowpass, 5, 5, 0, 16
     paddw        m5, m5
     psubw        m6, m5
     pshufw       m5, m0, 6
-    pmullw       m6, [pw_3]
+   ; pmullw       m6, [pw_3]
     paddw        m0, m4
     paddw        m5, m1
-    pmullw       m0, [pw_20]
+   ; pmullw       m0, [pw_20]
     psubw        m0, m5
-    paddw        m6, [PW_ROUND]
+  ;  paddw        m6, [PW_ROUND]
     paddw        m0, m6
     psraw        m0, 5
     mova    [rsp+8], m0
@@ -218,12 +218,12 @@ cglobal %1_mpeg4_qpel16_h_lowpass, 5, 5, 0, 16
     psrlq        m6, 24
     punpcklbw    m2, m7
     punpcklbw    m6, m7
-    pmullw       m3, [pw_3]
+  ;  pmullw       m3, [pw_3]
     paddw        m1, m2
     paddw        m4, m6
-    pmullw       m1, [pw_20]
+  ;  pmullw       m1, [pw_20]
     psubw        m3, m4
-    paddw        m1, [PW_ROUND]
+   ; paddw        m1, [PW_ROUND]
     paddw        m3, m1
     psraw        m3, 5
     mova         m1, [rsp+8]
@@ -242,7 +242,7 @@ cglobal %1_mpeg4_qpel16_h_lowpass, 5, 5, 0, 16
     psubw        m0, m5
     mova         m5, m3
     psrlq        m3, 24
-    pmullw       m0, [pw_3]
+  ;  pmullw       m0, [pw_3]
     punpcklbw    m3, m7
     paddw        m2, m3
     psubw        m0, m2
@@ -250,8 +250,8 @@ cglobal %1_mpeg4_qpel16_h_lowpass, 5, 5, 0, 16
     punpcklbw    m2, m7
     punpckhbw    m5, m7
     paddw        m6, m2
-    pmullw       m6, [pw_20]
-    paddw        m0, [PW_ROUND]
+  ;  pmullw       m6, [pw_20]
+   ; paddw        m0, [PW_ROUND]
     paddw        m0, m6
     psraw        m0, 5
     paddw        m3, m5
@@ -263,10 +263,10 @@ cglobal %1_mpeg4_qpel16_h_lowpass, 5, 5, 0, 16
     paddw        m5, m2
     paddw        m6, m6
     psubw        m4, m6
-    pmullw       m3, [pw_20]
-    pmullw       m4, [pw_3]
+ ;   pmullw       m3, [pw_20]
+ ;   pmullw       m4, [pw_3]
     psubw        m3, m5
-    paddw        m4, [PW_ROUND]
+  ;  paddw        m4, [PW_ROUND]
     paddw        m4, m3
     psraw        m4, 5
     packuswb     m0, m4
@@ -327,12 +327,12 @@ cglobal %1_mpeg4_qpel8_h_lowpass, 5, 5, 0, 8
     paddw        m5, m5
     psubw        m6, m5
     pshufw       m5, m0, 0x6
-    pmullw       m6, [pw_3]
+  ;  pmullw       m6, [pw_3]
     paddw        m0, m4
     paddw        m5, m1
-    pmullw       m0, [pw_20]
+  ;  pmullw       m0, [pw_20]
     psubw        m0, m5
-    paddw        m6, [PW_ROUND]
+  ;  paddw        m6, [PW_ROUND]
     paddw        m0, m6
     psraw        m0, 5
     movh         m5, [r1+5]
@@ -346,10 +346,10 @@ cglobal %1_mpeg4_qpel8_h_lowpass, 5, 5, 0, 8
     paddw        m4, m5
     paddw        m2, m2
     psubw        m3, m2
-    pmullw       m1, [pw_20]
-    pmullw       m3, [pw_3]
+  ;  pmullw       m1, [pw_20]
+  ;  pmullw       m3, [pw_3]
     psubw        m3, m4
-    paddw        m1, [PW_ROUND]
+ ;   paddw        m1, [PW_ROUND]
     paddw        m3, m1
     psraw        m3, 5
     packuswb     m0, m3
@@ -376,7 +376,7 @@ MPEG4_QPEL8_H_LOWPASS put_no_rnd
 
 %macro QPEL_V_LOW 5
     paddw      m0, m1
-    mova       m4, [pw_20]
+   ; mova       m4, [pw_20]
     pmullw     m4, m0
     mova       m0, %4
     mova       m5, %1
@@ -388,8 +388,8 @@ MPEG4_QPEL8_H_LOWPASS put_no_rnd
     paddw      m6, m2
     paddw      m6, m6
     psubw      m5, m6
-    pmullw     m5, [pw_3]
-    paddw      m4, [PW_ROUND]
+ ;   pmullw     m5, [pw_3]
+ ;   paddw      m4, [PW_ROUND]
     paddw      m5, m4
     psraw      m5, 5
     packuswb   m5, m5

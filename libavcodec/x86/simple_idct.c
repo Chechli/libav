@@ -348,7 +348,6 @@ COL_IDCT(  24(%1), 88(%1), 56(%1), 120(%1), 12(%0), 20)
         "movq " #src4 ", %%mm1          \n\t" /* R6     R2      r6      r2 */\
         "movq " #src1 ", %%mm2          \n\t" /* R3     R1      r3      r1 */\
         "movq " #src5 ", %%mm3          \n\t" /* R7     R5      r7      r5 */\
-        "movq "MANGLE(wm1010)", %%mm4   \n\t"\
         "pand %%mm0, %%mm4              \n\t"\
         "por %%mm1, %%mm4               \n\t"\
         "por %%mm2, %%mm4               \n\t"\
@@ -422,7 +421,6 @@ COL_IDCT(  24(%1), 88(%1), 56(%1), 120(%1), 12(%0), 20)
         "jmp 2f                         \n\t"\
         "1:                             \n\t"\
         "pslld $16, %%mm0               \n\t"\
-        "paddd "MANGLE(d40000)", %%mm0  \n\t"\
         "psrad $13, %%mm0               \n\t"\
         "packssdw %%mm0, %%mm0          \n\t"\
         "movq %%mm0, " #dst "           \n\t"\
